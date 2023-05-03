@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Maquina } from "./models/prin.models"
 
 function Home({data}:any) {
 
@@ -7,7 +6,7 @@ function Home({data}:any) {
   return (
     <div className='min-h-screen bg-gray-900 text-white'>
       {
-        data.map((maquina:Maquina) => (
+        data.map((maquina:any) => (
 
           <li key={maquina.ID}>
             <Link href={`/${maquina.ID}`}>
@@ -27,7 +26,7 @@ export async function getStaticProps() {
   const url = 'https://apimaxv2.apexmaicol.online/VPsublimacion/'
   
   const res = await fetch(url)
-  const data:Maquina[] = await res.json()
+  const data = await res.json()
   
   return{
     props:{
