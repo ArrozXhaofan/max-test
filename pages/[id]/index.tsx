@@ -1,5 +1,3 @@
-
-
 function index({data}:any) {
 
 
